@@ -3,10 +3,10 @@
     <div class="basic-block">
       <div id="nav">
         <div v-for="(route, index) in curRoutes" :key="index">
-          <router-link :to="{path:route.path}">{{ route.name }}</router-link>
+          <router-link :to="{ path: route.path }">{{ route.name }}</router-link>
         </div>
       </div>
-      <router-view/>
+      <router-view />
     </div>
   </div>
 </template>
@@ -19,17 +19,17 @@ export default {
   setup() {
     const curRoutes = ref([]);
     onMounted(() => {
-      router.getRoutes().forEach(route => {
+      router.getRoutes().forEach((route) => {
         curRoutes.value.push({
           name: route.name,
-          path: route.path
-        })
-      })
-    })
+          path: route.path,
+        });
+      });
+    });
     return {
-      curRoutes
+      curRoutes,
     };
-  }
+  },
 };
 </script>
 
