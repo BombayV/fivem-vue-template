@@ -1,0 +1,14 @@
+.nui-wrapper {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.basic-block {
+  border-radius: 5px;
+  width: 31.25em;
+  height: 25em;
+  background: #282c34;
+  color: white;
+}
