@@ -1,16 +1,43 @@
 <template>
   <div class="nui-wrapper">
     <div class="basic-block">
-
+      <div id="nav">
+        <div v-for="(route, index) in curRoutes" :key="index">
+          <router-link :to="{path:route.path}">{{ route.name }}</router-link>
+        </div>
+      </div>
+      <router-view/>
     </div>
   </div>
-  <router-view />
 </template>
+
+<script>
+import { onMounted, ref } from 'vue';
+import router from './router/index';
+
+export default {
+  setup() {
+    const curRoutes = ref([]);
+    onMounted(() => {
+      router.getRoutes().forEach(route => {
+        curRoutes.value.push({
+          name: route.name,
+          path: route.path
+        })
+      })
+    })
+    return {
+      curRoutes
+    };
+  }
+};
+</script>
 
 <style>
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -22,5 +49,15 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10%;
+
+  color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 </style>
