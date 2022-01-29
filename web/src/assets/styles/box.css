@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@500&display=swap');
+
 .nui-wrapper {
   display: grid;
   place-items: center;
@@ -11,4 +13,14 @@
   height: 25em;
   background: #282c34;
   color: white;
+}
+
+.page-wrapper {
+  position: relative;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 1.8rem;
 }

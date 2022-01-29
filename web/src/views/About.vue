@@ -1,12 +1,14 @@
 <template>
-  <div>Some text</div>
+  <div class="page-wrapper">About</div>
 </template>
 
 <script>
 export default {
   name: 'About',
   setup() {
-    return {};
-  },
+    return {
+
+    }
+  }
 };
 </script>
