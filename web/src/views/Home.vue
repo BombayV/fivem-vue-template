@@ -1,12 +1,1 @@
-<template>
-  <div class="page-wrapper">Home</div>
-</template>
-
-<script>
-export default {
-  name: 'Home',
-  setup() {
-    return {};
-  },
-};
-</script>
+<template>  <div class="page-wrapper">    <span>Home</span>    <div class="submit-container">      <input v-model="name" class="inp-home" placeholder="Enter your name" type="text" @keyup.enter="add">    </div>    <div class="list-container">      <ul>        <li v-for="(item, index) in data" :key="index">          <span>{{ item }}</span>          <button @click="remove(index)">X</button>        </li>      </ul>    </div>  </div></template><script>import {ref} from 'vue';export default {  name: 'Home',  setup() {    const name = ref('');    const data = ref([]);    const add = () => {      data.value.push(name.value);      name.value = '';    };    const remove = (index) => {      data.value.splice(index, 1);    };    return {      name,      data,      add,      remove    };  },};</script><style scoped>.submit-container {  display: flex;  justify-content: space-around;  align-items: center;  width: 100%;}.inp-home {  border-radius: 2px;  border: none;  outline: none;  background-color: #c7c7c7;}</style>
